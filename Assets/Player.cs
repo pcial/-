@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         {
             // 위 방향으로 힘을 가함
             rb.velocity = new Vector2(rb.velocity.x, 0); // 기존 y속도 제거
-            rb.AddForce(Vector2.up * 10f, ForceMode2D.Impulse); // 점프 세기 조절 가능
+            rb.AddForce(Vector2.up * 5f, ForceMode2D.Impulse); // 점프 세기 조절 가능
 
         }
     }
