@@ -34,7 +34,8 @@ public class Camera_move : MonoBehaviour
         // 아래 죽는 조건은 기존대로 위치비교로 처리
         if (Player != null && Player.position.y < transform.position.y - deathOffset)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Title");
         }
     }
 
