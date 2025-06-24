@@ -8,19 +8,16 @@ public class Player : MonoBehaviour
     public float jump = 5f;
     bool isGrounded = false;
     Rigidbody2D rb;
-    Animator animator;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         Movejump();
-        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x)); // 속도 절댓값
-        animator.SetBool("IsGrounded", isGrounded);
     }
     private void FixedUpdate()
     {
@@ -47,8 +44,6 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
             isGrounded = false;
-
-            animator.SetTrigger("Jump");
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -66,13 +61,6 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0); // 기존 y속도 제거
             rb.AddForce(Vector2.up * 5f, ForceMode2D.Impulse); // 점프 세기 조절 가능
 
-        }
-    }
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
         }
     }
 }

@@ -21,7 +21,7 @@ public class 발판 : MonoBehaviour
         if(!isStepped && collision.collider.CompareTag("Player"))
         {
             isStepped = true;
-            animator.SetTrigger("Shake");
+            animator.SetTrigger("움직임");
             StartCoroutine(FallAfterDelay());
         }
     }
